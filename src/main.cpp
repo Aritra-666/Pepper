@@ -65,13 +65,13 @@ void loop() {
   runWalkBackward();
   delay(1000);
  
-  // Serial.println("TURN LEFT");
-  // runTurnLeft();
-  // delay(1000);
+  Serial.println("TURN LEFT");
+  runTurnLeft();
+  delay(1000);
  
-  // Serial.println("TURN RIGHT");
-  // runTurnRight();
-  // delay(1000);
+  Serial.println("TURN RIGHT");
+  runTurnRight();
+  delay(1000);
  
   Serial.println("WAVE");
   runWavePose();
