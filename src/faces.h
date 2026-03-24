@@ -3096,184 +3096,171 @@ extern const unsigned char epd_bitmap_idle_blink_3 [] PROGMEM = {
 	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
 };
 
-inline void animWalk(int frameDelay) {
-  showFrame(epd_bitmap_walk);
-  delay(frameDelay);
+
+
+
+
+
+
+
+inline void animWalk()       { showFrame(epd_bitmap_walk); }
+inline void animSwim()       { showFrame(epd_bitmap_swim); }
+inline void animWave()       { showFrame(epd_bitmap_wave); }
+inline void animPushup()     { showFrame(epd_bitmap_pushup); }
+inline void animBow()        { showFrame(epd_bitmap_bow); }
+inline void animCute()       { showFrame(epd_bitmap_cute); }
+inline void animFreaky()     { showFrame(epd_bitmap_freaky); }
+inline void animWorm()       { showFrame(epd_bitmap_worm); }
+inline void animShake()      { showFrame(epd_bitmap_shake); }
+inline void animShrug()      { showFrame(epd_bitmap_shrug); }
+inline void animCrab()       { showFrame(epd_bitmap_crab); }
+inline void animIdle()       { showFrame(epd_bitmap_idle); }
+inline void animHappy()      { showFrame(epd_bitmap_happy); }
+inline void animSad()        { showFrame(epd_bitmap_sad); }
+inline void animAngry()      { showFrame(epd_bitmap_angry); }
+inline void animSurprised()  { showFrame(epd_bitmap_surprised); }
+inline void animSleepy()     { showFrame(epd_bitmap_sleepy); }
+inline void animLove()       { showFrame(epd_bitmap_love); }
+inline void animExcited()    { showFrame(epd_bitmap_excited); }
+inline void animConfused()   { showFrame(epd_bitmap_confused); }
+
+inline void animRest() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_rest); break;
+    case 1: showFrame(epd_bitmap_rest_1); break;
+    case 2: showFrame(epd_bitmap_rest_2); break;
+  }
+  f = (f + 1) % 3;
 }
 
-inline void animRest(int frameDelay) {
-  showFrame(epd_bitmap_rest);   delay(frameDelay);
-  showFrame(epd_bitmap_rest_1); delay(frameDelay);
-  showFrame(epd_bitmap_rest_2); delay(frameDelay);
+inline void animDance() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_dance); break;
+    case 1: showFrame(epd_bitmap_dance_1); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animDance(int frameDelay) {
-  showFrame(epd_bitmap_dance);   delay(frameDelay);
-  showFrame(epd_bitmap_dance_1); delay(frameDelay);
+inline void animPoint() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_point); break;
+    case 1: showFrame(epd_bitmap_point_1); break;
+    case 2: showFrame(epd_bitmap_point_2); break;
+  }
+  f = (f + 1) % 3;
 }
 
-inline void animSwim(int frameDelay) {
-  showFrame(epd_bitmap_swim);
-  delay(frameDelay);
+inline void animDead() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_dead); break;
+    case 1: showFrame(epd_bitmap_dead_1); break;
+    case 2: showFrame(epd_bitmap_dead_2); break;
+  }
+  f = (f + 1) % 3;
 }
 
-inline void animWave(int frameDelay) {
-  showFrame(epd_bitmap_wave);
-  delay(frameDelay);
+inline void animIdleBlink() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_idle_blink); break;
+    case 1: showFrame(epd_bitmap_idle_blink_1); break;
+    case 2: showFrame(epd_bitmap_idle_blink_2); break;
+    case 3: showFrame(epd_bitmap_idle_blink_3); break;
+  }
+  f = (f + 1) % 4;
 }
 
-inline void animPoint(int frameDelay) {
-  showFrame(epd_bitmap_point);   delay(frameDelay);
-  showFrame(epd_bitmap_point_1); delay(frameDelay);
-  showFrame(epd_bitmap_point_2); delay(frameDelay);
+inline void animThinking() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_thinking); break;
+    case 1: showFrame(epd_bitmap_thinking_2); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animPushup(int frameDelay) {
-  showFrame(epd_bitmap_pushup);
-  delay(frameDelay);
+// ================= TALK ANIMATIONS =================
+inline void animTalkHappy() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_happy); break;
+    case 1: showFrame(epd_bitmap_happy); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animBow(int frameDelay) {
-  showFrame(epd_bitmap_bow);
-  delay(frameDelay);
+inline void animTalkSad() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_sad); break;
+    case 1: showFrame(epd_bitmap_sad); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animCute(int frameDelay) {
-  showFrame(epd_bitmap_cute);
-  delay(frameDelay);
+inline void animTalkAngry() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_angry); break;
+    case 1: showFrame(epd_bitmap_angry); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animFreaky(int frameDelay) {
-  showFrame(epd_bitmap_freaky);
-  delay(frameDelay);
+inline void animTalkSurprised() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_surprised); break;
+    case 1: showFrame(epd_bitmap_surprised); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animWorm(int frameDelay) {
-  showFrame(epd_bitmap_worm);
-  delay(frameDelay);
+inline void animTalkSleepy() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_sleepy); break;
+    case 1: showFrame(epd_bitmap_sleepy); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animShake(int frameDelay) {
-  showFrame(epd_bitmap_shake);
-  delay(frameDelay);
+inline void animTalkLove() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_love); break;
+    case 1: showFrame(epd_bitmap_love); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animShrug(int frameDelay) {
-  showFrame(epd_bitmap_shrug);
-  delay(frameDelay);
+inline void animTalkExcited() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_excited); break;
+    case 1: showFrame(epd_bitmap_excited); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animDead(int frameDelay) {
-  showFrame(epd_bitmap_dead);   delay(frameDelay);
-  showFrame(epd_bitmap_dead_1); delay(frameDelay);
-  showFrame(epd_bitmap_dead_2); delay(frameDelay);
+inline void animTalkConfused() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_confused); break;
+    case 1: showFrame(epd_bitmap_confused); break;
+  }
+  f = (f + 1) % 2;
 }
 
-inline void animCrab(int frameDelay) {
-  showFrame(epd_bitmap_crab);
-  delay(frameDelay);
+inline void animTalkThinking() {
+  static uint8_t f = 0;
+  switch (f) {
+    case 0: showFrame(epd_bitmap_talk_thinking); break;
+    case 1: showFrame(epd_bitmap_thinking); break;
+  }
+  f = (f + 1) % 2;
 }
-
-inline void animIdle(int frameDelay) {
-  showFrame(epd_bitmap_idle);
-  delay(frameDelay);
-}
-
-inline void animIdleBlink(int frameDelay) {
-  showFrame(epd_bitmap_idle_blink);   delay(frameDelay);
-  showFrame(epd_bitmap_idle_blink_1); delay(frameDelay);
-  showFrame(epd_bitmap_idle_blink_2); delay(frameDelay);
-  showFrame(epd_bitmap_idle_blink_3); delay(frameDelay);
-}
-
-inline void animHappy(int frameDelay) {
-  showFrame(epd_bitmap_happy);
-  delay(frameDelay);
-}
-
-inline void animTalkHappy(int frameDelay) {
-  showFrame(epd_bitmap_talk_happy); delay(frameDelay);
-  showFrame(epd_bitmap_happy);      delay(frameDelay);
-}
-
-inline void animSad(int frameDelay) {
-  showFrame(epd_bitmap_sad);
-  delay(frameDelay);
-}
-
-inline void animTalkSad(int frameDelay) {
-  showFrame(epd_bitmap_talk_sad); delay(frameDelay);
-  showFrame(epd_bitmap_sad);      delay(frameDelay);
-}
-
-inline void animAngry(int frameDelay) {
-  showFrame(epd_bitmap_angry);
-  delay(frameDelay);
-}
-
-inline void animTalkAngry(int frameDelay) {
-  showFrame(epd_bitmap_talk_angry); delay(frameDelay);
-  showFrame(epd_bitmap_angry);      delay(frameDelay);
-}
-
-inline void animSurprised(int frameDelay) {
-  showFrame(epd_bitmap_surprised);
-  delay(frameDelay);
-}
-
-inline void animTalkSurprised(int frameDelay) {
-  showFrame(epd_bitmap_talk_surprised); delay(frameDelay);
-  showFrame(epd_bitmap_surprised);      delay(frameDelay);
-}
-
-inline void animSleepy(int frameDelay) {
-  showFrame(epd_bitmap_sleepy);
-  delay(frameDelay);
-}
-
-inline void animTalkSleepy(int frameDelay) {
-  showFrame(epd_bitmap_talk_sleepy); delay(frameDelay);
-  showFrame(epd_bitmap_sleepy);      delay(frameDelay);
-}
-
-inline void animLove(int frameDelay) {
-  showFrame(epd_bitmap_love);
-  delay(frameDelay);
-}
-
-inline void animTalkLove(int frameDelay) {
-  showFrame(epd_bitmap_talk_love); delay(frameDelay);
-  showFrame(epd_bitmap_love);      delay(frameDelay);
-}
-
-inline void animExcited(int frameDelay) {
-  showFrame(epd_bitmap_excited);
-  delay(frameDelay);
-}
-
-inline void animTalkExcited(int frameDelay) {
-  showFrame(epd_bitmap_talk_excited); delay(frameDelay);
-  showFrame(epd_bitmap_excited);      delay(frameDelay);
-}
-
-inline void animConfused(int frameDelay) {
-  showFrame(epd_bitmap_confused);
-  delay(frameDelay);
-}
-
-inline void animTalkConfused(int frameDelay) {
-  showFrame(epd_bitmap_talk_confused); delay(frameDelay);
-  showFrame(epd_bitmap_confused);      delay(frameDelay);
-}
-
-inline void animThinking(int frameDelay) {
-  showFrame(epd_bitmap_thinking);   delay(frameDelay);
-  showFrame(epd_bitmap_thinking_2); delay(frameDelay);
-}
-
-inline void animTalkThinking(int frameDelay) {
-  showFrame(epd_bitmap_talk_thinking); delay(frameDelay);
-  showFrame(epd_bitmap_thinking);      delay(frameDelay);
-}
-
-
